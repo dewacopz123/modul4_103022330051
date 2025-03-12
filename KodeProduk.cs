@@ -4,28 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace modul4_103022330051
+namespace jurnalmod4_103022330051
 {
     class KodeProduk
     {
-        private static readonly Dictionary<string, string> kodeProdukMap = new Dictionary<string, string>
-        {
-            {"Laptop", "E100" },
-            {"Smartphone", "E101" },
-            {"Tablet", "E102" },
-            {"Headset", "E103" },
-            {"Keyboard", "E104" },
-            {"Mouse", "E105" },
-            {"Printer", "E106" },
-            {"Monitor", "E107" },
-            {"Smartwatch", "E108" },
-            {"Kamera", "E109" }
-        };
+        public enum produkElektronik { Laptop, Smartphone, Tablet, Headset, Keyboard, Mouse, Printer, Monitor, Smartwatch, Kamera };
 
-        private static string getKodeProduk(string kodeProduk)
+        public static string getKodeProduk(produkElektronik elektronik)
         {
-            return kodeProdukMap.TryGetValue(kodeProduk, out string kodePeoduk) ? kodeProduk : "kode produk tidak ditemukan";
+            string[] kodeProduk = { "E100", "E101", "E102", "E103", "E104", "E105", "E106", "E107", "E108", "E109" };
+
+            return kodeProduk[(int)elektronik];
+
         }
+
     }
 }
-
